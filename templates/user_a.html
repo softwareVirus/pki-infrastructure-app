@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User A Actions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .flash-messages {
+            list-style-type: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .flash-messages li {
+            color: #333;
+            background-color: #f2f2f2;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .instructions {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .instructions p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .instructions ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .instructions li {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .back-to-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4285f4;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-to-home:hover {
+            background-color: #3367d6;
+        }
+    </style>
+</head>
+<body>
+    <h1>User A Actions</h1>
+    
+    <!-- Instructions for User A -->
+    <div class="instructions">
+        <p>Instructions for User A:</p>
+        <ul>
+            <li>Choose an action and select a file to perform the desired operation.</li>
+            <li>For "Sign Files": The selected file will be signed and saved in the "signed" directory.</li>
+            <li>For "Encrypt Files": The selected file will be encrypted and saved in the "encrypted" directory.</li>
+            <li>For "Sign and Encrypt Files": The file will be signed and encrypted, then saved in the "signed_and_encrypted" directory.</li>
+        </ul>
+    </div>
+    <!-- File Upload Form -->
+    <form action="/user_a" method="post" enctype="multipart/form-data">
+        <label for="file">Select files:</label>
+        <input type="file" name="file" id="file" multiple required>
+        <br>
+
+        <!-- Buttons for Actions -->
+        <button type="submit" name="action" value="sign">Sign Files</button>
+        <button type="submit" name="action" value="encrypt">Encrypt Files</button>
+        <button type="submit" name="action" value="sign_and_encrypt">Sign and Encrypt Files</button>
+    </form>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class="flash-messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <a href={{ url_for('index') }} class="back-to-home">Back to Home</a>
+
+</body>
+</html>
