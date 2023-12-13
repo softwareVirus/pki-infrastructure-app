@@ -125,8 +125,11 @@ This Flask-based Public Key Infrastructure (PKI) project employs various cryptog
 These cryptographic techniques collectively provide a secure foundation for file operations, ensuring confidentiality, integrity, and authenticity in the PKI infrastructure implemented in this Flask project.
 
 ## Screenshots
+### Home Page
 ![image](https://github.com/softwareVirus/pki-infrastructure-app/assets/63147096/cc3e9a03-071d-4958-aaca-618bd15f96cf)
+### User A Page
 ![image](https://github.com/softwareVirus/pki-infrastructure-app/assets/63147096/37680173-528b-432b-88e8-f7d393944182)
+### User B Page
 ![image](https://github.com/softwareVirus/pki-infrastructure-app/assets/63147096/acd5f4b9-5597-4622-84de-99c1c9a7a5a0)
 
 ## Notes
